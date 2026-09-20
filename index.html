@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +79,10 @@
 
 
     <!-- Song -->
-    <audio
-        id="loveSong"
-        src="MAGIC_-_Rude_Offblogmedia.com.mp3">
+    <audio id="loveSong" preload="auto">
+        <source
+            src="./MAGIC_-_Rude_Offblogmedia.com.mp3"
+            type="audio/mpeg">
     </audio>
 
 
@@ -98,10 +100,21 @@
 
             if (music.paused) {
 
-                music.play();
+                music.play()
+                    .then(() => {
 
-                button.textContent =
-                    "🎵 Our song is playing 💗";
+                        button.textContent =
+                            "🎵 Our song is playing 💗";
+
+                    })
+                    .catch((error) => {
+
+                        console.error("Audio error:", error);
+
+                        button.textContent =
+                            "❌ Couldn't play song";
+
+                    });
 
             } else {
 
@@ -148,3 +161,4 @@
 </body>
 
 </html>
+```
