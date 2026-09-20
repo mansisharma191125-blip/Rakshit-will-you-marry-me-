@@ -1,42 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Marry me rakshit?💝</title>
+
+    <title>Will You Marry Me Rakshit? 💝</title>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="waiting.webp" as="image">
     <link rel="preload" href="yes.webp" as="image">
     <link rel="stylesheet" href="loader.css">
 </head>
+
 <body>
+
+    <!-- Loading screen -->
     <div id="loading-overlay">
         <div class="loading-container">
             <div class="paper-heart"></div>
             <div class="paper-heart-inner"></div>
         </div>
-        <div class="loading-text">Loading Love...</div>
+
+        <div class="loading-text">
+            Loading Love... 💗
+        </div>
     </div>
+
     <script src="loader.js"></script>
+
+
+    <!-- Main proposal -->
     <div class="container">
-        <h1>Hey You!!</h1>
-        <h2>Will you marry me please?</h2>
+
+        <h1>Hey Rakshit!! 💗</h1>
+
+        <h2>Will you marry me please? 💍🥺</h2>
+
         <div class="buttons">
-            <button class="yes-button" onclick="handleYesClick()">Yes</button>
-            <button class="no-button" onclick="handleNoClick()">No</button>
+
+            <button
+                class="yes-button"
+                onclick="handleYesClick()">
+                Yes 💗
+            </button>
+
+            <button
+                class="no-button"
+                onclick="handleNoClick()">
+                No 🥺
+            </button>
+
         </div>
+
+
+        <!-- Cute picture -->
         <div class="gif_container">
-            <img src="waiting.webp" alt="Cute GIF" fetchpriority="high">
+
+            <img
+                src="waiting.webp"
+                alt="Cute love image"
+                fetchpriority="high">
+
         </div>
+
+
+        <!-- Music button -->
+        <button
+            id="musicButton"
+            onclick="toggleMusic()">
+
+            🎵 Play our song 💗
+
+        </button>
+
     </div>
+
+
+    <!-- Song -->
+    <audio
+        id="loveSong"
+        src="MAGIC_-_Rude_Offblogmedia.com.mp3">
+    </audio>
+
+
+    <!-- Your existing JavaScript -->
     <script src="script.js"></script>
+
+
+    <!-- Music controls -->
     <script>
-        // Register Service Worker for offline support
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Service Worker registered'))
-                .catch(err => console.log('Service Worker registration failed:', err));
+
+        function toggleMusic() {
+
+            const music = document.getElementById("loveSong");
+            const button = document.getElementById("musicButton");
+
+            if (music.paused) {
+
+                music.play();
+
+                button.textContent =
+                    "🎵 Our song is playing 💗";
+
+            } else {
+
+                music.pause();
+
+                button.textContent =
+                    "🎵 Play our song 💗";
+
+            }
+
         }
+
     </script>
+
+
+    <!-- Service Worker -->
+    <script>
+
+        if ('serviceWorker' in navigator) {
+
+            navigator.serviceWorker.register('./sw.js')
+
+                .then(reg => {
+
+                    console.log(
+                        'Service Worker registered'
+                    );
+
+                })
+
+                .catch(err => {
+
+                    console.log(
+                        'Service Worker registration failed:',
+                        err
+                    );
+
+                });
+
+        }
+
+    </script>
+
 </body>
+
 </html>
